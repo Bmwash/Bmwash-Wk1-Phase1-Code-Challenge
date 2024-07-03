@@ -1,30 +1,40 @@
-const readline = require('readline');
+   ///Students Grade Generator
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+   
+   const readline = require('readline');
 
-rl.question("what is the speed of the car (in km/h): ", function(speed) {
-    speed = Number(speed);
-
-    if (isNaN(speed) || speed < 0) {
-        console.log("Wrong input, enter a positive number.");
-    } else {
-        let speedLimit = 70;
-        let DemeritPoint = 5;
-
-        if (speed <= speedLimit) {
-            console.log("Ok");
-        } else {
-            let demeritPoints = Math.floor((speed - speedLimit) / DemeritPoint);
-            console.log("Points: " + demeritPoints);
-
-            if (demeritPoints > 12) {
-                console.log("License suspended");
-            }
-        }
-    }
-
-    rl.close();
-});
+   const rl = readline.createInterface({
+       input: process.stdin,
+       output: process.stdout
+   });
+   
+   rl.question("Enter the student's name: ", function(studentName) {
+       console.log("Student Name: " + studentName);
+   
+       rl.question("Enter the student's marks: ", function(studentMarks) {
+           console.log("Student Marks: " + studentMarks);
+   
+           let marks = Number(studentMarks);
+   
+           if (isNaN(marks) || marks < 0 || marks > 100) {
+               console.log("Invalid input, please enter a number between 0 and 100.");
+           } else {
+               let grade;
+               if (marks > 79) {
+                   console.log("you have grade A");
+               } else if (marks >= 60 && marks <= 79) {
+                   gconsole.log("you have grade B");
+               } else if (marks >= 50 && marks < 60) {
+                   console.log("you have grade C");
+               } else if (marks >= 40 && marks < 50) {
+                   console.log("you have grade D");
+               } else {
+                   console.log("you have grade E");
+               }
+               console.log("You have grade " + grade);
+           }
+   
+           rl.close();
+       });
+   });
+   
